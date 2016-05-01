@@ -1,0 +1,24 @@
+{
+  "name": "node-merkle-tree",
+  "version": "1.0.0",
+  "description": "Merkle Tree implementation in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devedge/node-merkle-tree.git"
+  },
+  "author": "devedge <devedge@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devedge/node-merkle-tree/issues"
+  },
+  "homepage": "https://github.com/devedge/node-merkle-tree#readme",
+  "dependencies": {
+    "chunking-streams": "0.0.8",
+    "collections": "^3.0.0",
+    "hasha": "^2.2.0"
+  }
+}
