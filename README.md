@@ -2,6 +2,30 @@
 [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/devedge/node-merkle-tree/blob/master/LICENSE) <br>
 Merkle Tree implementation in NodeJS
 <br><br>
+Install from NPM <br>
+`npm install --save node-merkle-tree` (example, not uploaded yet)
+<br>
+Usage in NodeJS <br>
+From a file <br>
+```javascript
+var merkle = require('node-merkle-tree');
+
+var args = {
+    file: '/absolute/filepath/to/file.zip',
+    hashalgo: 'sha256', // optional
+    blocksize: 1048576  // optional
+}
+
+merkle.fromFile(args, function (err, tree) {
+
+    if (!err) {
+        console.log('Root hash: ' + tree.root);
+        console.log('Number of leaves: ' + tree.leaves);
+        console.log('Number of levels: ' + tree.levels);
+    }
+});
+```
+
 Currently under development. This will generate a Merkle Tree object from a file or an array. For the array, if the elements in the array is a list of hashes, they will be used as the leaves in the Merkle Tree. Otherwise, each element will be hashed to become a leaf.
 <br><br>
 Once the basic implementation is done, proofs and verification methods will be added.
