@@ -3,7 +3,7 @@ var merkle = require('./index.js');
 
 // Specify the arguments for the tree
 var fileargs = {
-    file: '/home/usr/largefile.mkv',
+    file: '/home/usr/ginueapig.zip',
     hashalgo: 'sha256',
     blocksize: 1048576
 }
