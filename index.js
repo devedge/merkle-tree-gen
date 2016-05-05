@@ -17,6 +17,12 @@
      */
     function fromArray(args, cb) {
         
+
+
+
+        // Import dependencies
+        var HashArray = require('./lib/hash-array');
+        var genMerkle = require('./lib/merkle-gen');
     }
 
     /**
@@ -56,13 +62,13 @@
         }
 
         // Import dependencies
-        var HashFile = require('./lib/hash-file.js');
+        var HashFile = require('./lib/hash-file');
         var genMerkle = require('./lib/merkle-gen');
 
         // Initialize the blockreader
         var blockreader = new HashFile(hashalgo, blocksize);
 
-        // Hash the file with the block size
+        // Hash the file using the specified block size
         blockreader.hashBlocks(file, function (fastMap) {
 
             // Generate a Merkle Tree from the leaves

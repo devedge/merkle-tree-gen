@@ -6,6 +6,8 @@ Currently under development. This will generate a Merkle Tree object from a file
 <br><br>
 Once the basic implementation is done, proofs and verification methods will be added.
 
+Supports hashes provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool`
+
 <br><br>
 Install from NPM (example, not uploaded yet) <br>
 `npm install --save node-merkle-tree`
