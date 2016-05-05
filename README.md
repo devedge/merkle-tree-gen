@@ -12,9 +12,9 @@ Dependencies: [`collections`](https://www.npmjs.com/package/collections), [`hash
 <br><br>
 Install from NPM:  (example, not uploaded yet) <br>
 ```bash
-npm install --save node-merkle-tree
+npm install node-merkle-tree --save
 ```
-<br><br>
+<br>
 Usage in NodeJS: <br>
 ```javascript
 // Hash a file
@@ -37,7 +37,7 @@ merkle.fromFile(args, function (err, tree) {
 ```
 
 <br><br>
-An example Merkle Tree object generated from a 2.6 MiB file, using SHA-256 and hashing every 1 MiB of the file
+An example Merkle Tree JSON object generated from a 2.6 MiB file, using SHA-256 and hashing every 1 MiB of the file (blocksize of 1048576):
 ```json
 {
     "root": "6abfe8109b239d0d2ba67ea7a4f9852dae3a07484fad995296ee23933ad2a224",
