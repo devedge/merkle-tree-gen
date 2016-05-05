@@ -5,14 +5,17 @@ Merkle Tree implementation in NodeJS
 Currently under development. This will generate a Merkle Tree object from a file or an array. For the array, if the elements in the array is a list of hashes, they will be used as the leaves in the Merkle Tree. Otherwise, each element will be hashed to become a leaf.
 <br><br>
 Once the basic implementation is done, proofs and verification methods will be added.
-
-Supports hashes provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool`
+<br><br>
+Supports hashes provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool` <br>
+Dependencies: [`collections`](https://www.npmjs.com/package/collections), [`hasha`](https://www.npmjs.com/package/hasha), [`chunking-streams`](https://www.npmjs.com/package/chunking-streams)
 
 <br><br>
-Install from NPM (example, not uploaded yet) <br>
-`npm install --save node-merkle-tree`
+Install from NPM:  (example, not uploaded yet) <br>
+```bash
+npm install --save node-merkle-tree
+```
 <br><br>
-Usage in NodeJS <br>
+Usage in NodeJS: <br>
 ```javascript
 // Hash a file
 var merkle = require('node-merkle-tree');
