@@ -17,16 +17,35 @@
      */
     function fromArray(args, cb) {
         
+        var array;
+        var hashalgo;
+        var hashlist;
 
+        if (!args.array || args.array.length === 0) {
+            cb('An array with at least 1 element is required', null);
+        } else {
+            array = args.array;
+        }
 
+        if (!args.hashalgo) {
+            hashalgo = 'sha256';    // Set the default hash as SHA-256
+        } else {
+            hashalgo = args.hashalgo;
+        }
+
+        if (!args.hashlist) {
+            hashlist = false;       // Assume the elements aren't hashes
+        } else {
+            hashlist = args.hashlist;
+        }
 
         // Import dependencies
         var HashArray = require('./lib/hash-array');
         var genMerkle = require('./lib/merkle-gen');
 
-        var ar = new HashArray(hashalgo);
+        var arrayHasher = new HashArray(hashalgo, hashlist);
 
-        ar.hashElements(a, function (fastMap) {
+        arrayHasher.hashElements(array, function (fastMap) {
             
             // Generate a Merkle Tree from the leaves
             genMerkle(fastMap, hashalgo, function (tree) {
@@ -50,8 +69,8 @@
     function fromFile(args, cb) {
 
         var file;
-        var blocksize;
         var hashalgo;
+        var blocksize;
 
         if (!args.file) {
             cb('The absolute path to a file is required', null);
@@ -59,16 +78,16 @@
             file = args.file;
         }
 
-        if (!args.blocksize) {
-            blocksize = 1048576;    // Set default size to 1 MiB
-        } else {
-            blocksize = args.blocksize;
-        }
-
         if (!args.hashalgo) {
             hashalgo = 'sha256';    // Set the default hash as SHA-256
         } else {
             hashalgo = args.hashalgo;
+        }
+
+        if (!args.blocksize) {
+            blocksize = 1048576;    // Set default size to 1 MiB
+        } else {
+            blocksize = args.blocksize;
         }
 
         // Import dependencies

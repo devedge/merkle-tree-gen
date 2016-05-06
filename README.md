@@ -6,8 +6,6 @@ Currently under development. This will generate a Merkle Tree object from a file
 <br><br>
 Once the basic implementation is done, proofs, verification methods, and partial tree verification will be added.
 <br><br>
-Supports hashes provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool` <br>
-Dependencies: [`collections`](https://www.npmjs.com/package/collections), [`hasha`](https://www.npmjs.com/package/hasha), [`chunking-streams`](https://www.npmjs.com/package/chunking-streams)
 
 <br><br>
 Install from NPM:  (example, not uploaded yet) <br>
@@ -16,7 +14,22 @@ npm install node-merkle-tree --save
 ```
 <br>
 Usage in NodeJS: <br>
-## File
+<!-- Info about how to use -->
+
+[Generate from a file](https://github.com/devedge/node-merkle-tree#Generate-from-a-file)
+[Generate from an array](https://github.com/devedge/node-merkle-tree#Generate-from-a-file)
+[Generate from an array of hashes](https://github.com/devedge/node-merkle-tree#Generate-from-a-file)
+
+<!-- Info about the merkle tree json object -->
+[Example](https://github.com/devedge/node-merkle-tree#Example)
+
+
+<br>
+Supports hashes provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool` 
+<br>
+Dependencies: [`collections`](https://www.npmjs.com/package/collections), [`hasha`](https://www.npmjs.com/package/hasha), [`chunking-streams`](https://www.npmjs.com/package/chunking-streams)
+
+## Generate from a file
 ```javascript
 // Hash a file
 var merkle = require('node-merkle-tree');
@@ -35,18 +48,18 @@ merkle.fromFile(args, function (err, tree) {
         console.log('Number of levels: ' + tree.levels);
     }
 });
+```
+Example result: <br>
 
-/*
- * Returns:
-
+```
 Root hash: 4b84a0fea1374585707c9e92eee03b989222ab3e443d6191431346b2174f8814
 Number of leaves: 9
 Number of levels: 5
-
-*/
 ```
+
+
 <br>
-## Array
+## Generate from an array
 ```javascript
 // Hash an array
 var merkle = require('node-merkle-tree');
@@ -67,13 +80,13 @@ merkle.fromArray(args, function (err, tree) {
 });
 ```
 <br>
-## Array of hashes
+## Generate from an array of hashes
 ```javascript
 // Hash an array of hashes
 var merkle = require('node-merkle-tree');
 
 var args = {
-    // The elements must have the same hash type as 'hashalgo'
+    // The hashes must be of the same hash type as 'hashalgo'
     array: [
         "98325468840887230d248330de2c99f76750d131aa6076dbd9e9a0ab20f09fd0",
         "e60b311f8206962615afce5b2cfad4674bc0e49bef8043bb5f19ca746eb671eb",
@@ -98,6 +111,7 @@ merkle.fromArray(args, function (err, tree) {
 ```
 
 <br><br>
+## Example
 An example Merkle Tree JSON object generated from a 2.6 MiB file, using SHA-256 and hashing every 1 MiB of the file (blocksize of 1048576):
 ```json
 {
