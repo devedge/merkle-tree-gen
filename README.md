@@ -16,12 +16,12 @@ npm install node-merkle-tree --save
 Usage in NodeJS: <br>
 <!-- Info about how to use -->
 
-[Generate from a file](https://github.com/devedge/node-merkle-tree#generate-from-a-file)  <br>
-[Generate from an array](https://github.com/devedge/node-merkle-tree#generate-from-a-file) <br>
-[Generate from an array of hashes](https://github.com/devedge/node-merkle-tree#generate-from-a-file) <br>
+[Generate from a file](#generate-from-a-file)  <br>
+[Generate from an array](#generate-from-a-file) <br>
+[Generate from an array of hashes](#generate-from-a-file) <br>
 
 <!-- Info about the merkle tree json object -->
-[Example](https://github.com/devedge/node-merkle-tree#example)
+[Example](#example)
 
 
 <br>
