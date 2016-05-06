@@ -22,11 +22,57 @@ var merkle = require('node-merkle-tree');
 
 var args = {
     file: '/absolute/filepath/to/file.zip',
-    hashalgo: 'sha256', // optional
-    blocksize: 1048576  // optional
+    hashalgo: 'sha256', // optional, defaults to sha256
+    blocksize: 1048576  // optional, defaults to 1 MiB (Megabyte), 1048576
 }
 
 merkle.fromFile(args, function (err, tree) {
+
+    if (!err) {
+        console.log('Root hash: ' + tree.root);
+        console.log('Number of leaves: ' + tree.leaves);
+        console.log('Number of levels: ' + tree.levels);
+    }
+});
+```
+<br>
+```javascript
+// Hash an array
+var merkle = require('node-merkle-tree');
+
+var args = {
+    array: [],
+    hashalgo: 'sha256'  // optional, defaults to sha256
+}
+
+merkle.fromArray(args, function (err, tree) {
+
+    if (!err) {
+        console.log('Root hash: ' + tree.root);
+        console.log('Number of leaves: ' + tree.leaves);
+        console.log('Number of levels: ' + tree.levels);
+    }
+});
+```
+<br>
+```javascript
+// Hash an array of hashes
+var merkle = require('node-merkle-tree');
+
+var args = {
+    array: [
+        "98325468840887230d248330de2c99f76750d131aa6076dbd9e9a0ab20f09fd0",
+        "e60b311f8206962615afce5b2cfad4674bc0e49bef8043bb5f19ca746eb671eb",
+        "ff1da71d8a78d13fd280d29c3f124e6e97b78a5c8317a2a9ff3d6c5f7294143f",
+        "3b071f3d67e907ed5e2615ee904b9135e7ad4db666dad72aa63af1b04076eb9d",
+        "9c005dd47633f54816133136a980dac48968c3ddb1d5c6d4f20d76e2295034ae",
+        "c27f85771711ec1c70129714ed5c9083c96f1f12506203f46590c2146a93fae2"
+    ],
+    hashalgo: 'sha256', // optional, defaults to sha256
+    hashlist: true      // optional, defaults to false. If true, will treat the array elements as hashes
+}
+
+merkle.fromArray(args, function (err, tree) {
 
     if (!err) {
         console.log('Root hash: ' + tree.root);
