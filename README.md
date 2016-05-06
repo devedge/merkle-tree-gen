@@ -17,8 +17,8 @@ Usage in NodeJS: <br>
 <!-- Info about how to use -->
 
 [Generate from a file](#generate-from-a-file)  <br>
-[Generate from an array](#generate-from-a-file) <br>
-[Generate from an array of hashes](#generate-from-a-file) <br>
+[Generate from an array](#generate-from-an-array) <br>
+[Generate from an array of hashes](#generate-from-an-array-of-hashes) <br>
 
 <!-- Info about the merkle tree json object -->
 [Example](#example)
@@ -65,7 +65,7 @@ Number of levels: 5
 var merkle = require('node-merkle-tree');
 
 var args = {
-    // The elements are converted .toString() before being hashed
+    // The elements are converted to a string with JSON.stringify() before being hashed
     array: [12, someObject, "string1", "string2", secondObject],
     hashalgo: 'sha256'  // optional, defaults to sha256
 }
@@ -109,8 +109,15 @@ merkle.fromArray(args, function (err, tree) {
     }
 });
 ```
+Result: <br>
 
-<br><br>
+```
+Root hash: d400e79de8fd499cf7f474fb4db1c6d7ec5f7fd16da473c22af7679f1cfe8f9f
+Number of leaves: 6
+Number of levels: 4
+```
+
+<br>
 ## Example
 An example Merkle Tree JSON object generated from a 2.6 MiB file, using SHA-256 and hashing every 1 MiB of the file (blocksize of 1048576):
 ```json
