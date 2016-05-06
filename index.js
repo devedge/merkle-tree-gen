@@ -23,6 +23,16 @@
         // Import dependencies
         var HashArray = require('./lib/hash-array');
         var genMerkle = require('./lib/merkle-gen');
+
+        var ar = new HashArray(hashalgo);
+
+        ar.hashElements(a, function (fastMap) {
+            
+            // Generate a Merkle Tree from the leaves
+            genMerkle(fastMap, hashalgo, function (tree) {
+                cb(null, tree);
+            });
+        });
     }
 
     /**

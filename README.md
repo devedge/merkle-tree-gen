@@ -1,5 +1,5 @@
 # node-merkle-tree
-[![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/devedge/node-merkle-tree/blob/master/LICENSE) <br>
+[![Licence](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/devedge/node-merkle-tree/blob/master/LICENSE) <br>
 Merkle Tree implementation in NodeJS
 <br><br>
 Currently under development. This will generate a Merkle Tree object from a file or an array. For the array, if the elements in the array is a list of hashes, they will be used as the leaves in the Merkle Tree. Otherwise, each element will be hashed to become a leaf.
@@ -24,7 +24,7 @@ var merkle = require('node-merkle-tree');
 var args = {
     file: '/absolute/filepath/to/file.zip',
     hashalgo: 'sha256', // optional, defaults to sha256
-    blocksize: 1048576  // optional, defaults to 1 MiB (Megabyte), 1048576
+    blocksize: 1048576  // optional, defaults to 1 MiB (Megabyte), 1048576 Bytes
 }
 
 merkle.fromFile(args, function (err, tree) {
@@ -39,9 +39,9 @@ merkle.fromFile(args, function (err, tree) {
 /*
  * Returns:
 
-Root hash:
-Number of leaves:
-Number of levels:
+Root hash: 4b84a0fea1374585707c9e92eee03b989222ab3e443d6191431346b2174f8814
+Number of leaves: 9
+Number of levels: 5
 
 */
 ```
@@ -52,6 +52,7 @@ Number of levels:
 var merkle = require('node-merkle-tree');
 
 var args = {
+    // The elements are converted .toString() before being hashed
     array: [12, someObject, "string1", "string2", secondObject],
     hashalgo: 'sha256'  // optional, defaults to sha256
 }
@@ -72,6 +73,7 @@ merkle.fromArray(args, function (err, tree) {
 var merkle = require('node-merkle-tree');
 
 var args = {
+    // The elements must have the same hash type as 'hashalgo'
     array: [
         "98325468840887230d248330de2c99f76750d131aa6076dbd9e9a0ab20f09fd0",
         "e60b311f8206962615afce5b2cfad4674bc0e49bef8043bb5f19ca746eb671eb",
@@ -81,7 +83,8 @@ var args = {
         "c27f85771711ec1c70129714ed5c9083c96f1f12506203f46590c2146a93fae2"
     ],
     hashalgo: 'sha256', // optional, defaults to sha256
-    hashlist: true      // optional, defaults to false. If true, will treat the array elements as hashes
+    hashlist: true      // optional, defaults to false. If true, the array elements will be treated
+                        // as hashes and become leaves of the Merkle Tree
 }
 
 merkle.fromArray(args, function (err, tree) {
@@ -99,7 +102,7 @@ An example Merkle Tree JSON object generated from a 2.6 MiB file, using SHA-256 
 ```json
 {
     "root": "6abfe8109b239d0d2ba67ea7a4f9852dae3a07484fad995296ee23933ad2a224",
-    "hash": "sha256",
+    "hashalgo": "sha256",
     "leaves": 3,
     "levels": 3,
     "3515590e98ad159338b2d5f8d6b9a5123534a898f4e0c2d33040305c6a9654e7": {
