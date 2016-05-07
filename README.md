@@ -2,22 +2,15 @@
 [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/devedge/node-merkle-tree/blob/master/LICENSE) <br>
 Merkle Tree implementation in NodeJS
 <br><br>
-Currently under development. This will generate a Merkle Tree object from a file or an array. For the array, if the elements in the array is a list of hashes, they will be used as the leaves in the Merkle Tree. Otherwise, each element will be hashed to become a leaf.
-<br><br>
-TODO:<br>
-Implement verification methods and extracting/concatenating branches into a tree.
-<br><br>
 
 Install from NPM:  (example, not uploaded yet) <br>
 ```bash
 npm install node-merkle-tree --save
 ```
-<br>
-Usage in NodeJS: <br><br>
 
-This modules generates a Merkle Tree from either a [file](#generate-from-a-file), [an array of any elements](#generate-from-an-array), or an [array of hashes](#generate-from-an-array-of-hashes). The returned value is a JavaScript object, which can be converted into JSON using `JSON.stringify()` [(Example Merkle Tree)](#example).
+This modules generates a Merkle Tree from either [a file](#generate-from-a-file), [an array of any elements](#generate-from-an-array), or an [array of hashes](#generate-from-an-array-of-hashes). The returned value is a JavaScript object, which can be converted into JSON using `JSON.stringify()`. [Example Merkle Tree Object](#example)
 <br><br>
-The `node-merkle-tree` module can be set up and used with three simple steps (Example for file hash). <br><br>
+The `node-merkle-tree` module can be set up and used with three simple steps (Example for hashing a file). <br><br>
 Import the module: <br>
 ```javascript
 var merkle = require('node-merkle-tree');
@@ -39,19 +32,25 @@ merkle.fromFile(args, function (err, tree) {
 ```
 
 <br>
-* <b>File [example](#generate-from-a-file)</b> <br>
-    To hash a file, an absolute path to an existing file must be passed in. Optional parameters include the hash algorithm (in lowercase, eg. sha512), and a 'blocksize'. The file will be split into chunks specified by the blocksize (in bytes), and each chunk will be hashed, creating a leaf on the Merkle Tree.
-* <b>Array [example](#generate-from-an-array)</b> <br>
-    To hash an array, the array passed in must have at least one element in it. Each element will be converted into a string (using `JSON.stringify(value)`) unless it is already a string. Then the element will be hashed using the specified hash algorithm, creating a leaf on the Merkle Tree.
-* <b>Array of hashes [example](#generate-from-an-array-of-hashes)</b> <br>
-    If you want to pass in hashes already generated using some other method, this function will use those hashes as the leaves in the generated Merkle Tree. The hashes must have been generated with the same algorithm as specified with `hashalgo`.
+Usage information:
+* File [(example usage)](#generate-from-a-file) <br>
+    To hash a file, an absolute path to an existing file must be passed in. Optional parameters include the hash algorithm (in lowercase, eg. `sha512`), and a 'blocksize'. <br>
+    The file will be split into chunks specified by the blocksize (in bytes), and each chunk will be hashed to create a leaf on the Merkle Tree. <br><br>
+* Array [(example usage)](#generate-from-an-array) <br>
+    Hash an array (non-zero size) so that the hash of each of the elements is a leaf on the Merkle Tree. <br>
+    Each element (if it isn't a string) will be converted into a string using `JSON.stringify(value)`. <br><br>
+* Array of hashes [(example usage)](#generate-from-an-array-of-hashes) <br>
+    If you want to pass in hashes already generated using some other method, this function will use those hashes as the leaves in the generated Merkle Tree. <br>
+    The hashes must have been generated with the same algorithm as specified with `hashalgo`.
 
 
 
 <br>
-Supports hashes provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool` 
+This supports hashes provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool` 
 <br>
 Dependencies: [`collections`](https://www.npmjs.com/package/collections), [`hasha`](https://www.npmjs.com/package/hasha), [`chunking-streams`](https://www.npmjs.com/package/chunking-streams)
+<br><br>
+`TODO:` Implement verification methods/proofs and extracting/concatenating branches into a tree. 
 
 ## Generate from a file
 ```javascript
