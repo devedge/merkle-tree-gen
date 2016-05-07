@@ -8,7 +8,6 @@ TODO:<br>
 Implement verification methods and extracting/concatenating branches into a tree.
 <br><br>
 
-<br><br>
 Install from NPM:  (example, not uploaded yet) <br>
 ```bash
 npm install node-merkle-tree --save
@@ -17,8 +16,8 @@ npm install node-merkle-tree --save
 Usage in NodeJS: <br><br>
 
 This modules generates a Merkle Tree from either a [file](#generate-from-a-file), [an array of any elements](#generate-from-an-array), or an [array of hashes](#generate-from-an-array-of-hashes). The returned value is a JavaScript object, which can be converted into JSON using `JSON.stringify()` [(Example Merkle Tree)](#example).
-<br>
-The `node-merkle-tree` module can be set up and used with three simple steps (Example for file hash). <br>
+<br><br>
+The `node-merkle-tree` module can be set up and used with three simple steps (Example for file hash). <br><br>
 Import the module: <br>
 ```javascript
 var merkle = require('node-merkle-tree');
@@ -40,11 +39,11 @@ merkle.fromFile(args, function (err, tree) {
 ```
 
 <br>
-* <b>File [example](#generate-from-a-file)<b><br>
+* <b>File [example](#generate-from-a-file)</b> <br>
     To hash a file, an absolute path to an existing file must be passed in. Optional parameters include the hash algorithm (in lowercase, eg. sha512), and a 'blocksize'. The file will be split into chunks specified by the blocksize (in bytes), and each chunk will be hashed, creating a leaf on the Merkle Tree.
-* <b>Array [example](#generate-from-an-array)<b><br>
+* <b>Array [example](#generate-from-an-array)</b> <br>
     To hash an array, the array passed in must have at least one element in it. Each element will be converted into a string (using `JSON.stringify(value)`) unless it is already a string. Then the element will be hashed using the specified hash algorithm, creating a leaf on the Merkle Tree.
-* <b>Array of hashes [example](#generate-from-an-array-of-hashes)<b><br>
+* <b>Array of hashes [example](#generate-from-an-array-of-hashes)</b> <br>
     If you want to pass in hashes already generated using some other method, this function will use those hashes as the leaves in the generated Merkle Tree. The hashes must have been generated with the same algorithm as specified with `hashalgo`.
 
 
