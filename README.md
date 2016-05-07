@@ -1,19 +1,19 @@
 # node-merkle-tree
-[![Licence](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/devedge/node-merkle-tree/blob/master/LICENSE) <br>
+[![Licence](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/devedge/merkle-tree-gen/blob/master/LICENSE) <br>
 Merkle Tree implementation in NodeJS
 <br><br>
 
 Install from NPM:  (example, not uploaded yet) <br>
 ```
-npm install node-merkle-tree --save
+npm install merkle-tree-gen --save
 ```
 
 This modules generates a Merkle Tree from either [a file](#generate-from-a-file), [an array of any elements](#generate-from-an-array), or an [array of hashes](#generate-from-an-array-of-hashes). The returned value is a JavaScript object, which can be converted into JSON using `JSON.stringify()`. [Example Merkle Tree Object](#example)
 <br><br><br>
-The `node-merkle-tree` module can be set up and used with three simple steps: (Example for hashing a file) <br><br>
+The `merkle-tree-gen` module can be set up and used with three simple steps: (Example for hashing a file) <br><br>
 Import the module: <br>
 ```javascript
-var merkle = require('node-merkle-tree');
+var merkle = require('merkle-tree-gen');
 ```
 
 Specify the relevant arguments for the function: <br>
@@ -72,7 +72,7 @@ Dependencies: [`collections`](https://www.npmjs.com/package/collections), [`hash
 ## Generate from a file
 ```javascript
 // Hash a file
-var merkle = require('node-merkle-tree');
+var merkle = require('merkle-tree-gen');
 
 // Set up the arguments
 var args = {
@@ -103,7 +103,7 @@ Number of levels: 5
 ## Generate from an array
 ```javascript
 // Hash an array
-var merkle = require('node-merkle-tree');
+var merkle = require('merkle-tree-gen');
 
 // Set up the arguments
 var args = {
@@ -133,7 +133,7 @@ Number of levels: 4
 ## Generate from an array of hashes
 ```javascript
 // Hash an array of hashes
-var merkle = require('node-merkle-tree');
+var merkle = require('merkle-tree-gen');
 
 // Set up the arguments
 var args = {
@@ -223,3 +223,7 @@ An example Merkle Tree object generated from a 2.6 MiB file, using SHA-256 and h
     }
 }
 ```
+
+## Licence
+
+[MIT](https://github.com/devedge/merkle-tree-gen/blob/master/LICENSE)

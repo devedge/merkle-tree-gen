@@ -1,6 +1,6 @@
 {
-  "name": "node-merkle-tree",
-  "version": "0.0.1",
+  "name": "merkle-tree-gen",
+  "version": "1.0.0",
   "description": "Merkle Tree implementation in NodeJS",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devedge/node-merkle-tree.git"
+  },
+  "directories": {
+    "lib": "./lib"
   },
   "author": "devedge <devedge@outlook.com>",
   "license": "MIT",
