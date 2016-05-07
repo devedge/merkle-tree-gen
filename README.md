@@ -10,7 +10,7 @@ npm install node-merkle-tree --save
 
 This modules generates a Merkle Tree from either [a file](#generate-from-a-file), [an array of any elements](#generate-from-an-array), or an [array of hashes](#generate-from-an-array-of-hashes). The returned value is a JavaScript object, which can be converted into JSON using `JSON.stringify()`. [Example Merkle Tree Object](#example)
 <br><br><br>
-The `node-merkle-tree` module can be set up and used with three simple steps (Example for hashing a file). <br><br>
+The `node-merkle-tree` module can be set up and used with three simple steps: (Example for hashing a file) <br><br>
 Import the module: <br>
 ```javascript
 var merkle = require('node-merkle-tree');
@@ -33,7 +33,7 @@ merkle.fromFile(args, function (err, tree) {
 
 <br>
 Usage information:
-* `fromFile()`  Passing in a file <br>
+* `fromFile()`  Passing in a file: <br>
     The three arguments that can be set are: 
     * `file: `      - <b>required</b>, the absolute path to an existing file
     * `hashalgo: `  - <b>optional</b>, the hash algorithm (default `sha256`)
@@ -42,7 +42,7 @@ Usage information:
     The file (piped into a readStream) is split into chunks specified by the blocksize, and each chunk is hashed to create a leaf on the Merkle Tree. <br>
     Specific information can be found in the [example usage](#generate-from-a-file) <br><br>
 
-* `fromArray()`  Passing in a regular array <br>
+* `fromArray()`  Passing in a regular array: <br>
     The two arguments that can be set are: 
     * `array: `     - <b>required</b>, an array with a non-zero size
     * `hashalgo`    - <b>optional</b>, the hash algorithm (default `sha256`)
@@ -50,7 +50,7 @@ Usage information:
     The hash of each element in the array will become a leaf on the Merkle Tree. Before hashing, each element (if it isn't a string) will be converted into a string using `JSON.stringify(value)`. <br>
     Specific information can be found in the [example usage](#generate-from-an-array) <br><br>
 
-* `fromArray()`  Passing in an array of hashes <br>
+* `fromArray()`  Passing in an array of hashes: <br>
     The three arguments that can be set are: 
     * `array: `     - <b>required</b>, an array with a non-zero size
     * `hashalgo: `  - <b>optional</b>, the hash algorithm (default `sha256`)
@@ -79,7 +79,7 @@ var args = {
     file: '/absolute/filepath/to/file.zip', // required
     hashalgo: 'sha256', // optional, defaults to sha256
     blocksize: 1048576  // optional, defaults to 1 MiB (Megabyte), 1048576 Bytes
-}
+};
 
 // Generate the tree
 merkle.fromFile(args, function (err, tree) {
@@ -110,7 +110,7 @@ var args = {
     // The elements are converted to a string with JSON.stringify() before being hashed
     array: [12, someObject, "string1", "string2", secondObject],    // required
     hashalgo: 'sha256'  // optional, defaults to sha256
-}
+};
 
 // Generate the tree
 merkle.fromArray(args, function (err, tree) {
@@ -150,7 +150,7 @@ var args = {
     hashlist: true      // optional, but it is required to be set to 'true' for this example to work. 
                         // It defaults to 'false', but when it is 'true' the array's elements are 
                         // treated as hashes and become the leaves of the Merkle Tree
-}
+};
 
 // Generate the tree
 merkle.fromArray(args, function (err, tree) {
@@ -172,7 +172,7 @@ Number of levels: 4
 
 <br>
 ## Example
-An example Merkle Tree JSON object generated from a 2.6 MiB file, using SHA-256 and hashing every 1 MiB of the file (blocksize of 1048576):
+An example Merkle Tree object generated from a 2.6 MiB file, using SHA-256 and hashing every 1 MiB of the file (blocksize of 1048576):
 ```json
 {
     "root": "3a9f60b4feb44b003ff6d1426718a7e4d81725892cea87b9938e25900530b72e",

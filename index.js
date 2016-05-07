@@ -107,7 +107,7 @@
         });
     }
 
-    // Export the fromFile() and fromArray() functions
+    // Export the fromArray() and fromFile() functions
     module.exports = {
         fromArray: fromArray,
         fromFile: fromFile
