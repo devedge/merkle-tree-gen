@@ -11,14 +11,14 @@ npm install merkle-tree-gen --save
 
 This modules generates a Merkle Tree from either [a file](#generate-from-a-file), [an array of any elements](#generate-from-an-array), or an [array of hashes](#generate-from-an-array-of-hashes). The returned value is a JavaScript object, which can be converted into JSON using `JSON.stringify()`. [Example Merkle Tree Object](#example)
 <br><br><br>
-The `merkle-tree-gen` module can be set up and used with three simple steps: (Example for hashing a file) <br><br>
+Using this package involves three steps: (Example for hashing a file) <br><br>
 Import the module: <br>
 ```javascript
 var merkle = require('merkle-tree-gen');
 ```
 
 Specify the relevant arguments for the function: <br>
-```
+```javascript
 var args = {
     file: '/absolute/filepath/to/file.zip'
 }
@@ -35,16 +35,16 @@ merkle.fromFile(args, function (err, tree) {
 <br>
 Usage information:
 
-* `fromFile()`  Passing in a file: <br>
+* `fromFile()`  Generate from a file: <br>
     The three arguments that can be set are: 
     * `file: `      - <b>required</b>, the absolute path to an existing file
     * `hashalgo: `  - <b>optional</b>, the hash algorithm (default `sha256`)
-    * `blocksize: ` - <b>optional</b>, the blocksize (default 1 MiB `1048576 Bytes`)
+    * `blocksize: ` - <b>optional</b>, the blocksize (default 1 MiB, `1048576 Bytes`)
     <br><br>
     The file (piped into a readStream) is split into chunks specified by the blocksize, and each chunk is hashed to create a leaf on the Merkle Tree. <br>
     Specific information can be found in the [example usage](#generate-from-a-file) <br><br>
 
-* `fromArray()`  Passing in a regular array: <br>
+* `fromArray()`  Generate from an array: <br>
     The two arguments that can be set are: 
     * `array: `     - <b>required</b>, an array with a non-zero size
     * `hashalgo`    - <b>optional</b>, the hash algorithm (default `sha256`)
@@ -52,7 +52,7 @@ Usage information:
     The hash of each element in the array will become a leaf on the Merkle Tree. Before hashing, each element (if it isn't a string) will be converted into a string using `JSON.stringify(value)`. <br>
     Specific information can be found in the [example usage](#generate-from-an-array) <br><br>
 
-* `fromArray()`  Passing in an array of hashes: <br>
+* `fromArray()`  Generate from an array of hashes: <br>
     The three arguments that can be set are: 
     * `array: `     - <b>required</b>, an array with a non-zero size
     * `hashalgo: `  - <b>optional</b>, the hash algorithm (default `sha256`)
@@ -101,6 +101,7 @@ Number of levels: 5
 ```
 
 <br>
+
 ## Generate from an array
 ```javascript
 // Hash an array
@@ -132,6 +133,7 @@ Number of levels: 4
 ```
 
 <br>
+
 ## Generate from an array of hashes
 ```javascript
 // Hash an array of hashes
@@ -173,6 +175,7 @@ Number of levels: 4
 ```
 
 <br>
+
 ## Example
 An example Merkle Tree object generated from a 2.6 MiB file, using SHA-256 and hashing every 1 MiB of the file (blocksize of 1048576):
 
