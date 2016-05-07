@@ -1,4 +1,4 @@
-# node-merkle-tree
+## merkle-tree-gen
 [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/devedge/merkle-tree-gen/blob/master/LICENSE) 
 [![npm version](https://badge.fury.io/js/merkle-tree-gen.svg?style=flat-square)](https://badge.fury.io/js/merkle-tree-gen) <br>
 Merkle Tree implementation in NodeJS
@@ -60,11 +60,10 @@ Usage information:
     <br><br>
     If you want to pass in hashes already generated using some other method, this function will use those hashes as the leaves in the generated Merkle Tree. <br>
     The hashes must have been generated with the same algorithm as specified with `hashalgo`. <br>
-    Specific information can be found in the [example usage](#generate-from-an-array-of-hashes) <br>
-
-
-
+    Specific information can be found in the [example usage](#generate-from-an-array-of-hashes) 
 <br>
+
+
 Uses the hashes provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool` 
 <br>
 Dependencies: [`collections`](https://www.npmjs.com/package/collections), [`hasha`](https://www.npmjs.com/package/hasha), [`chunking-streams`](https://www.npmjs.com/package/chunking-streams)
