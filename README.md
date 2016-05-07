@@ -4,12 +4,12 @@ Merkle Tree implementation in NodeJS
 <br><br>
 
 Install from NPM:  (example, not uploaded yet) <br>
-```bash
+```
 npm install node-merkle-tree --save
 ```
 
 This modules generates a Merkle Tree from either [a file](#generate-from-a-file), [an array of any elements](#generate-from-an-array), or an [array of hashes](#generate-from-an-array-of-hashes). The returned value is a JavaScript object, which can be converted into JSON using `JSON.stringify()`. [Example Merkle Tree Object](#example)
-<br><br>
+<br><br><br>
 The `node-merkle-tree` module can be set up and used with three simple steps (Example for hashing a file). <br><br>
 Import the module: <br>
 ```javascript
@@ -33,20 +33,37 @@ merkle.fromFile(args, function (err, tree) {
 
 <br>
 Usage information:
-* File [(example usage)](#generate-from-a-file) <br>
-    To hash a file, an absolute path to an existing file must be passed in. Optional parameters include the hash algorithm (in lowercase, eg. `sha512`), and a 'blocksize'. <br>
-    The file will be split into chunks specified by the blocksize (in bytes), and each chunk will be hashed to create a leaf on the Merkle Tree. <br><br>
-* Array [(example usage)](#generate-from-an-array) <br>
-    Hash an array (non-zero size) so that the hash of each of the elements is a leaf on the Merkle Tree. <br>
-    Each element (if it isn't a string) will be converted into a string using `JSON.stringify(value)`. <br><br>
-* Array of hashes [(example usage)](#generate-from-an-array-of-hashes) <br>
+* `fromFile()`  Passing in a file <br>
+    The three arguments that can be set are: 
+    * `file: `      - <b>required</b>, the absolute path to an existing file
+    * `hashalgo: `  - <b>optional</b>, the hash algorithm (default `sha256`)
+    * `blocksize: ` - <b>optional</b>, the blocksize (default 1 MiB `1048576 Bytes`)
+    <br><br>
+    The file (piped into a readStream) is split into chunks specified by the blocksize, and each chunk is hashed to create a leaf on the Merkle Tree. <br>
+    Specific information can be found in the [example usage](#generate-from-a-file) <br><br>
+
+* `fromArray()`  Passing in a regular array <br>
+    The two arguments that can be set are: 
+    * `array: `     - <b>required</b>, an array with a non-zero size
+    * `hashalgo`    - <b>optional</b>, the hash algorithm (default `sha256`)
+    <br><br>
+    The hash of each element in the array will become a leaf on the Merkle Tree. Before hashing, each element (if it isn't a string) will be converted into a string using `JSON.stringify(value)`. <br>
+    Specific information can be found in the [example usage](#generate-from-an-array) <br><br>
+
+* `fromArray()`  Passing in an array of hashes <br>
+    The three arguments that can be set are: 
+    * `array: `     - <b>required</b>, an array with a non-zero size
+    * `hashalgo: `  - <b>optional</b>, the hash algorithm (default `sha256`)
+    * `hashlist: `  - <b>required</b>, the array is a list of hashes (default `false`). This needs to be set to `true`
+    <br><br>
     If you want to pass in hashes already generated using some other method, this function will use those hashes as the leaves in the generated Merkle Tree. <br>
-    The hashes must have been generated with the same algorithm as specified with `hashalgo`.
+    The hashes must have been generated with the same algorithm as specified with `hashalgo`. <br>
+    Specific information can be found in the [example usage](#generate-from-an-array-of-hashes) 
 
 
 
 <br>
-This supports hashes provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool` 
+Supported hashes are the ones provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool` 
 <br>
 Dependencies: [`collections`](https://www.npmjs.com/package/collections), [`hasha`](https://www.npmjs.com/package/hasha), [`chunking-streams`](https://www.npmjs.com/package/chunking-streams)
 <br><br>
@@ -57,12 +74,14 @@ Dependencies: [`collections`](https://www.npmjs.com/package/collections), [`hash
 // Hash a file
 var merkle = require('node-merkle-tree');
 
+// Set up the arguments
 var args = {
-    file: '/absolute/filepath/to/file.zip',
+    file: '/absolute/filepath/to/file.zip', // required
     hashalgo: 'sha256', // optional, defaults to sha256
     blocksize: 1048576  // optional, defaults to 1 MiB (Megabyte), 1048576 Bytes
 }
 
+// Generate the tree
 merkle.fromFile(args, function (err, tree) {
 
     if (!err) {
@@ -80,19 +99,20 @@ Number of leaves: 9
 Number of levels: 5
 ```
 
-
 <br>
 ## Generate from an array
 ```javascript
 // Hash an array
 var merkle = require('node-merkle-tree');
 
+// Set up the arguments
 var args = {
     // The elements are converted to a string with JSON.stringify() before being hashed
-    array: [12, someObject, "string1", "string2", secondObject],
+    array: [12, someObject, "string1", "string2", secondObject],    // required
     hashalgo: 'sha256'  // optional, defaults to sha256
 }
 
+// Generate the tree
 merkle.fromArray(args, function (err, tree) {
 
     if (!err) {
@@ -102,12 +122,20 @@ merkle.fromArray(args, function (err, tree) {
     }
 });
 ```
+Example result: <br>
+```
+Root hash: b425fca4eae215c50c0006d7f7dd46653500762bdeb4a06160009a1e94a1d05e
+Number of leaves: 5
+Number of levels: 4
+```
+
 <br>
 ## Generate from an array of hashes
 ```javascript
 // Hash an array of hashes
 var merkle = require('node-merkle-tree');
 
+// Set up the arguments
 var args = {
     // The hashes must be of the same hash type as 'hashalgo'
     array: [
@@ -117,12 +145,14 @@ var args = {
         "3b071f3d67e907ed5e2615ee904b9135e7ad4db666dad72aa63af1b04076eb9d",
         "9c005dd47633f54816133136a980dac48968c3ddb1d5c6d4f20d76e2295034ae",
         "c27f85771711ec1c70129714ed5c9083c96f1f12506203f46590c2146a93fae2"
-    ],
+    ],  // required
     hashalgo: 'sha256', // optional, defaults to sha256
-    hashlist: true      // optional, defaults to false. If true, the array elements will be treated
-                        // as hashes and become leaves of the Merkle Tree
+    hashlist: true      // optional, but it is required to be set to 'true' for this example to work. 
+                        // It defaults to 'false', but when it is 'true' the array's elements are 
+                        // treated as hashes and become the leaves of the Merkle Tree
 }
 
+// Generate the tree
 merkle.fromArray(args, function (err, tree) {
 
     if (!err) {
