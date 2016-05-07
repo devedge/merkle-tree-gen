@@ -80,7 +80,7 @@ var merkle = require('merkle-tree-gen');
 var args = {
     file: '/absolute/filepath/to/file.zip', // required
     hashalgo: 'sha256', // optional, defaults to sha256
-    blocksize: 1048576  // optional, defaults to 1 MiB (Megabyte), 1048576 Bytes
+    blocksize: 1048576  // optional, defaults to 1 MiB, 1048576 Bytes
 };
 
 // Generate the tree
