@@ -112,7 +112,7 @@ merkle.fromArray(args, function (err, tree) {
 Result: <br>
 
 ```
-Root hash: d400e79de8fd499cf7f474fb4db1c6d7ec5f7fd16da473c22af7679f1cfe8f9f
+Root hash: a548b8eb59e1579759d65473ec470673a0b55e62925f096fdf0f7f127036f90c
 Number of leaves: 6
 Number of levels: 4
 ```
@@ -122,50 +122,50 @@ Number of levels: 4
 An example Merkle Tree JSON object generated from a 2.6 MiB file, using SHA-256 and hashing every 1 MiB of the file (blocksize of 1048576):
 ```json
 {
-    "root": "6abfe8109b239d0d2ba67ea7a4f9852dae3a07484fad995296ee23933ad2a224",
+    "root": "3a9f60b4feb44b003ff6d1426718a7e4d81725892cea87b9938e25900530b72e",
     "hashalgo": "sha256",
     "leaves": 3,
     "levels": 3,
     "3515590e98ad159338b2d5f8d6b9a5123534a898f4e0c2d33040305c6a9654e7": {
         "type": "leaf",
         "level": 0,
-        "right": "data",
         "left": "data",
-        "parent": "d38a90546d828c4e3cbbcf0c13b8600dfdc6a82ed95f66a5850edda6f75d67fc"
+        "right": "data",
+        "parent": "1340b622bcae8720ba3aa90b966511a1b675715e3de236a4f4905bb064e7a05a"
     },
     "eb1d2c20c49195606dd0c65a8ab5134438d253907473fd96e5bb4a343a706bda": {
         "type": "leaf",
         "level": 0,
-        "right": "data",
         "left": "data",
-        "parent": "d38a90546d828c4e3cbbcf0c13b8600dfdc6a82ed95f66a5850edda6f75d67fc"
+        "right": "data",
+        "parent": "1340b622bcae8720ba3aa90b966511a1b675715e3de236a4f4905bb064e7a05a"
     },
     "85c3cf8fbdcf26ae2f301907d90e49c50203a782aa28cee28b341567592ca6a2": {
         "type": "leaf",
         "level": 0,
-        "right": "data",
         "left": "data",
+        "right": "data",
         "parent": "44210e019bccfd1f775b8e83909423a2da293db47bc1a9e4bf826a37b5346372"
     },
-    "d38a90546d828c4e3cbbcf0c13b8600dfdc6a82ed95f66a5850edda6f75d67fc": {
+    "1340b622bcae8720ba3aa90b966511a1b675715e3de236a4f4905bb064e7a05a": {
         "type": "node",
         "level": 1,
-        "right": "3515590e98ad159338b2d5f8d6b9a5123534a898f4e0c2d33040305c6a9654e7",
-        "left": "eb1d2c20c49195606dd0c65a8ab5134438d253907473fd96e5bb4a343a706bda",
-        "parent": "6abfe8109b239d0d2ba67ea7a4f9852dae3a07484fad995296ee23933ad2a224"
+        "left": "3515590e98ad159338b2d5f8d6b9a5123534a898f4e0c2d33040305c6a9654e7",
+        "right": "eb1d2c20c49195606dd0c65a8ab5134438d253907473fd96e5bb4a343a706bda",
+        "parent": "3a9f60b4feb44b003ff6d1426718a7e4d81725892cea87b9938e25900530b72e"
     },
     "44210e019bccfd1f775b8e83909423a2da293db47bc1a9e4bf826a37b5346372": {
         "type": "node",
         "level": 1,
-        "right": "85c3cf8fbdcf26ae2f301907d90e49c50203a782aa28cee28b341567592ca6a2",
         "left": "85c3cf8fbdcf26ae2f301907d90e49c50203a782aa28cee28b341567592ca6a2",
-        "parent": "6abfe8109b239d0d2ba67ea7a4f9852dae3a07484fad995296ee23933ad2a224"
+        "right": "85c3cf8fbdcf26ae2f301907d90e49c50203a782aa28cee28b341567592ca6a2",
+        "parent": "3a9f60b4feb44b003ff6d1426718a7e4d81725892cea87b9938e25900530b72e"
     },
-    "6abfe8109b239d0d2ba67ea7a4f9852dae3a07484fad995296ee23933ad2a224": {
+    "3a9f60b4feb44b003ff6d1426718a7e4d81725892cea87b9938e25900530b72e": {
         "type": "root",
         "level": 2,
-        "right": "d38a90546d828c4e3cbbcf0c13b8600dfdc6a82ed95f66a5850edda6f75d67fc",
-        "left": "44210e019bccfd1f775b8e83909423a2da293db47bc1a9e4bf826a37b5346372",
+        "left": "1340b622bcae8720ba3aa90b966511a1b675715e3de236a4f4905bb064e7a05a",
+        "right": "44210e019bccfd1f775b8e83909423a2da293db47bc1a9e4bf826a37b5346372",
         "parent": "root"
     }
 }
