@@ -109,8 +109,8 @@
 
     // Export the fromFile() and fromArray() functions
     module.exports = {
-        fromFile: fromFile,
-        fromArray: fromArray
+        fromArray: fromArray,
+        fromFile: fromFile
     }
 
 })();
