@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devedge/node-merkle-tree.git"
+    "url": "git+https://github.com/devedge/merkle-tree-gen.git"
   },
   "directories": {
     "lib": "./lib"
@@ -16,9 +16,9 @@
   "author": "devedge <devedge@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/devedge/node-merkle-tree/issues"
+    "url": "https://github.com/devedge/merkle-tree-gen/issues"
   },
-  "homepage": "https://github.com/devedge/node-merkle-tree#readme",
+  "homepage": "https://github.com/devedge/merkle-tree-gen#readme",
   "dependencies": {
     "chunking-streams": "0.0.8",
     "collections": "^3.0.0",

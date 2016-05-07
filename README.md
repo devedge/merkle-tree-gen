@@ -232,4 +232,4 @@ An example Merkle Tree object generated from a 2.6 MiB file, using SHA-256 and h
 
 ## Licence
 
-[MIT](https://github.com/devedge/node-merkle-tree/blob/master/LICENSE)
+[MIT](https://github.com/devedge/merkle-tree-gen/blob/master/LICENSE)
