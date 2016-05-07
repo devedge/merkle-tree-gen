@@ -1,4 +1,4 @@
-## merkle-tree-gen
+# merkle-tree-gen
 [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/devedge/merkle-tree-gen/blob/master/LICENSE) 
 [![npm version](https://badge.fury.io/js/merkle-tree-gen.svg?style=flat-square)](https://badge.fury.io/js/merkle-tree-gen) <br>
 Merkle Tree implementation in NodeJS
@@ -61,7 +61,7 @@ Usage information:
     If you want to pass in hashes already generated using some other method, this function will use those hashes as the leaves in the generated Merkle Tree. <br>
     The hashes must have been generated with the same algorithm as specified with `hashalgo`. <br>
     Specific information can be found in the [example usage](#generate-from-an-array-of-hashes) 
-<br>
+<br><br>
 
 
 Uses the hashes provided by the NodeJS `crypto` module. Ex: `md4`, `md5`, `sha1`, `sha256`, `sha512`, `whirlpool` 
@@ -92,7 +92,7 @@ merkle.fromFile(args, function (err, tree) {
     }
 });
 ```
-<br>
+
 ```
 // Example result:
 Root hash: 4b84a0fea1374585707c9e92eee03b989222ab3e443d6191431346b2174f8814
@@ -123,7 +123,7 @@ merkle.fromArray(args, function (err, tree) {
     }
 });
 ```
-<br>
+
 ```
 // Example result:
 Root hash: b425fca4eae215c50c0006d7f7dd46653500762bdeb4a06160009a1e94a1d05e
@@ -164,7 +164,7 @@ merkle.fromArray(args, function (err, tree) {
     }
 });
 ```
-<br>
+
 ```
 // Result:
 Root hash: a548b8eb59e1579759d65473ec470673a0b55e62925f096fdf0f7f127036f90c
