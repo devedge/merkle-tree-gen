@@ -34,6 +34,7 @@ merkle.fromFile(args, function (err, tree) {
 
 <br>
 Usage information:
+
 * `fromFile()`  Passing in a file: <br>
     The three arguments that can be set are: 
     * `file: `      - <b>required</b>, the absolute path to an existing file
@@ -59,7 +60,7 @@ Usage information:
     <br><br>
     If you want to pass in hashes already generated using some other method, this function will use those hashes as the leaves in the generated Merkle Tree. <br>
     The hashes must have been generated with the same algorithm as specified with `hashalgo`. <br>
-    Specific information can be found in the [example usage](#generate-from-an-array-of-hashes) 
+    Specific information can be found in the [example usage](#generate-from-an-array-of-hashes) <br>
 
 
 
@@ -92,9 +93,9 @@ merkle.fromFile(args, function (err, tree) {
     }
 });
 ```
-Example result: <br>
-
+<br>
 ```
+// Example result:
 Root hash: 4b84a0fea1374585707c9e92eee03b989222ab3e443d6191431346b2174f8814
 Number of leaves: 9
 Number of levels: 5
@@ -123,8 +124,9 @@ merkle.fromArray(args, function (err, tree) {
     }
 });
 ```
-Example result: <br>
+<br>
 ```
+// Example result:
 Root hash: b425fca4eae215c50c0006d7f7dd46653500762bdeb4a06160009a1e94a1d05e
 Number of leaves: 5
 Number of levels: 4
@@ -163,9 +165,9 @@ merkle.fromArray(args, function (err, tree) {
     }
 });
 ```
-Result: <br>
-
+<br>
 ```
+// Result:
 Root hash: a548b8eb59e1579759d65473ec470673a0b55e62925f096fdf0f7f127036f90c
 Number of leaves: 6
 Number of levels: 4
@@ -174,6 +176,7 @@ Number of levels: 4
 <br>
 ## Example
 An example Merkle Tree object generated from a 2.6 MiB file, using SHA-256 and hashing every 1 MiB of the file (blocksize of 1048576):
+
 ```json
 {
     "root": "3a9f60b4feb44b003ff6d1426718a7e4d81725892cea87b9938e25900530b72e",
@@ -227,4 +230,4 @@ An example Merkle Tree object generated from a 2.6 MiB file, using SHA-256 and h
 
 ## Licence
 
-[MIT](https://github.com/devedge/merkle-tree-gen/blob/master/LICENSE)
+[MIT](https://github.com/devedge/node-merkle-tree/blob/master/LICENSE)
