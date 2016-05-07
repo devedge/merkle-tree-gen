@@ -1,6 +1,6 @@
 # node-merkle-tree
 [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/devedge/merkle-tree-gen/blob/master/LICENSE) 
-[![npm version](https://badge.fury.io/js/merkle-tree-gen.svg)](https://badge.fury.io/js/merkle-tree-gen) <br>
+[![npm version](https://badge.fury.io/js/merkle-tree-gen.svg?style=flat-square)](https://badge.fury.io/js/merkle-tree-gen) <br>
 Merkle Tree implementation in NodeJS
 <br><br>
 
