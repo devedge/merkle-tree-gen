@@ -1,6 +1,6 @@
 // import merkle-tree-gen manually
 var merkle = require('../index');
-
+const assert = require('assert');
 
 // even list
 var arraylist1 = [
@@ -74,8 +74,7 @@ var args1 = {
 merkle.fromArray(args1, function (err, tree) {
 
     if (!err) {
-        console.log('Root hash: ' + tree.root);
-        console.log('Expected:  ' + expectedroot1);
+        assert(tree.root === expectedroot1);
     }
 });
 
@@ -90,8 +89,7 @@ var args2 = {
 merkle.fromArray(args2, function (err, tree) {
 
     if (!err) {
-        console.log('Root hash: ' + tree.root);
-        console.log('Expected:  ' + expectedroot2);
+        assert(tree.root === expectedroot2);
     }
 });
 
@@ -106,8 +104,7 @@ var args3 = {
 merkle.fromArray(args3, function (err, tree) {
 
     if (!err) {
-        console.log('Root hash: ' + tree.root);
-        console.log('Expected:  ' + expectedroot3);
+        assert(tree.root === expectedroot3);
     } 
 });
 
@@ -123,9 +120,8 @@ merkle.fromArray(args4, function (err, tree) {
 
     if (!err) {
         console.log('Root hash: ' + tree.root);
-        console.log('Expected:  failure');
+        console.log('Expected: failure');
     } else {
-        console.log('Out: ' + err);
-        console.log('Exp: ' + expectedroot4);
+        assert(err === expectedroot4);
     }
 });
