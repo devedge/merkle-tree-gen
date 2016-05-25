@@ -109,7 +109,7 @@ var merkle = require('merkle-tree-gen');
 
 // Set up the arguments
 var args = {
-    // The elements are converted to a string with JSON.stringify() before being hashed
+    // Non-string elements are converted to a string with JSON.stringify() before being hashed
     array: [12, someObject, "string1", "string2", secondObject],    // required
     hashalgo: 'sha256'  // optional, defaults to sha256
 };
@@ -151,7 +151,7 @@ var args = {
         "c27f85771711ec1c70129714ed5c9083c96f1f12506203f46590c2146a93fae2"
     ],  // required
     hashalgo: 'sha256', // optional, defaults to sha256
-    hashlist: true      // optional, but it is required to be set to 'true' for this example to work. 
+    hashlist: true      // usually optional, but it is required to be set to 'true' for this example to work. 
                         // It defaults to 'false', but when it is 'true' the array's elements are 
                         // treated as hashes and become the leaves of the Merkle Tree
 };
