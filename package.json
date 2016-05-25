@@ -1,6 +1,6 @@
 {
   "name": "merkle-tree-gen",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Merkle Tree implementation in NodeJS",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,9 @@
     "tree",
     "fs",
     "array",
-    "generator"
+    "generator",
+    "hash",
+    "hashing"
   ],
   "directories": {
     "lib": "./lib"

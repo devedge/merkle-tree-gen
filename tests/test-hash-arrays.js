@@ -1,6 +1,6 @@
 // import merkle-tree-gen manually
 var merkle = require('../index');
-const assert = require('assert');
+var assert = require('assert');
 
 // even list
 var arraylist1 = [
@@ -64,6 +64,7 @@ var expectedroot2 = '0c932597b1bb9712d1278640c4ad9d5fa6de8b3302bfab2d5ccca2eed00
 var expectedroot3 = '535944028fcdaeddb11ab107752fab414bd7a36c82b31b2ae59fdcae8152bc9a'; 
 var expectedroot4 = 'An array with at least 1 element is required';
 
+
 /* Test on a valid even list, arraylist1 */
 var args1 = {
     array: arraylist1,
@@ -75,6 +76,8 @@ merkle.fromArray(args1, function (err, tree) {
 
     if (!err) {
         assert(tree.root === expectedroot1);
+    } else {
+        console.log(err);
     }
 });
 
@@ -90,6 +93,8 @@ merkle.fromArray(args2, function (err, tree) {
 
     if (!err) {
         assert(tree.root === expectedroot2);
+    } else {
+        console.log(err);
     }
 });
 
@@ -105,7 +110,9 @@ merkle.fromArray(args3, function (err, tree) {
 
     if (!err) {
         assert(tree.root === expectedroot3);
-    } 
+    } else {
+        console.log(err);
+    }
 });
 
 
@@ -119,8 +126,7 @@ var args4 = {
 merkle.fromArray(args4, function (err, tree) {
 
     if (!err) {
-        console.log('Root hash: ' + tree.root);
-        console.log('Expected: failure');
+        console.log('ERROR: expected failure');
     } else {
         assert(err === expectedroot4);
     }
